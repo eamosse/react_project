@@ -120,3 +120,4 @@ Développer des dashboards dynamiques adaptés au profil utilisateur :
 - Gestion du double diplôme
 - Notifications (email / SMS)
 - Tests unitaires et tests d’intégration
+- Lien de validation de comptes par email (eg. un étudiant/professeur recoit un mail avec un mot de passe temporaire qu'il doit changer à la première connexion) 
