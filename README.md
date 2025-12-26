@@ -120,4 +120,84 @@ Développer des dashboards dynamiques adaptés au profil utilisateur :
 - Gestion du double diplôme
 - Notifications (email / SMS)
 - Tests unitaires et tests d’intégration
-- Lien de validation de comptes par email (eg. un étudiant/professeur recoit un mail avec un mot de passe temporaire qu'il doit changer à la première connexion) 
+- Lien de validation de comptes par email (eg. un étudiant/professeur recoit un mail avec un mot de passe temporaire qu'il doit changer à la première connexion)
+- 
+
+## Livrables attendus
+
+Chaque groupe devra fournir les éléments suivants :
+
+### 1. Code source
+- Un dépôt Git (GitHub, GitLab ou équivalent) contenant :
+  - Le frontend React
+  - Le backend Node.js
+- Un historique de commits clair et régulier
+- Un code lisible, structuré et commenté
+
+### 2. Documentation
+- Un fichier `README.md` à jour décrivant :
+  - L’architecture globale du projet
+  - Les choix techniques effectués
+  - Les instructions d’installation et de lancement
+- Un schéma du modèle de données (UML ou ER)
+
+### 3. Base de données
+- Un jeu de données complet permettant d'importer des données dans la base
+- Collection postman permettant de tester votre API 
+
+
+### 4. Containerisation et déploiement
+- Un `Dockerfile` pour le frontend et le backend
+- Un fichier `docker-compose.yml` permettant de lancer l’application complète
+- Une application déployée sur une plateforme cloud (URL publique)
+
+---
+
+## Modalités de rendu
+
+- Le projet est à réaliser **en groupe** (MAX 4 étudiants)
+- Le rendu se fait via :
+  - Un lien vers le dépôt Git du projet
+  - Une URL d’accès à l’application déployée (si disponible)
+- Bien respecter le délai de livraison
+
+### Règles importantes
+- Le dépôt Git doit rester **privé** jusqu’à la date de rendu (sauf indication contraire)
+- Tout plagiat ou copie entraînera des sanctions conformément au règlement pédagogique
+- Chaque membre du groupe doit contribuer activement au projet (Commit, PR, issues, etc...)
+
+---
+
+## Critères d’acceptation
+
+Le projet sera considéré comme **acceptable** s’il respecte les critères suivants :
+
+### 1. Fonctionnalités minimales
+- Gestion complète des étudiants, cours, UE, diplômes et professeurs
+- Gestion des notes avec règles de validation des UE et diplômes respectées
+- Authentification fonctionnelle avec gestion des rôles
+
+### 2. Qualité technique
+- Architecture claire et cohérente (séparation frontend / backend)
+- Modèle de données correct et normalisé
+- API REST fonctionnelle et documentée
+- Gestion correcte des erreurs et des cas limites
+
+### 3. Sécurité
+- Accès aux fonctionnalités protégé par authentification
+- Respect strict des droits selon les rôles
+- Données sensibles sécurisées
+
+### 4. Expérience utilisateur
+- Interface claire et ergonomique
+- Application responsive
+- Respect des thèmes clair et sombre
+
+### 5. Déploiement
+- Application lançable via Docker
+- Déploiement fonctionnel sur une plateforme cloud
+
+### 6. Qualité du travail en équipe
+- Historique Git cohérent
+- Répartition visible du travail entre les membres du groupe
+
