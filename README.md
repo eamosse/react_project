@@ -1,68 +1,122 @@
-# Project Final React
+# Projet – Gestion académique (React / Node)
 
-## Description
+## Objectif du projet
+Ce projet a pour objectif de concevoir une application web de gestion académique permettant
+la gestion des étudiants, cours, unités d’enseignement, diplômes, professeurs, notes et statistiques,
+avec un système d’authentification sécurisé et une architecture moderne (React / Node).
 
-Dans ce projet, vous allez finaliser l'application de gestion des
-étudiants, cours et notes que vous avez commencée en TP.
+---
 
-## Fonctionnalités
+## Module 1 – Enrichissement du modèle de données
 
-### Module 0
+### 1.1 Cours (Matières)
+Compléter le modèle existant des matières en ajoutant :
+- Une description
+- Un syllabus
+- Les pré-requis
 
--   Fonctionnalités de base du TP précédent\
--   Gestion des entités **cours**, **étudiants** et **notes**\
--   Synchronisation avec une **API Node.js**
+### 1.2 Étudiants
+Compléter le modèle des étudiants avec :
+- Une photo
+- Une adresse
 
-### Module 1 -- Authentification
+### 1.3 Unités d’Enseignement (UE)
+Introduire la notion d’Unité d’Enseignement (UE) avec les règles suivantes :
+- Une UE regroupe plusieurs matières
+- Une matière peut appartenir à plusieurs UE
+- Une UE est enseignée dans une promotion
+- Les matières d’une UE se compensent entre elles
+- Une UE ne peut pas être validée si l’étudiant obtient une note éliminatoire dans l’une des matières
 
-Mettre en place un module d'authentification en utilisant **OAuth 2**
-permettant la connexion des utilisateurs avant d'accéder aux
-fonctionnalités de base.
+### 1.4 Diplômes (Classes / Formations)
+Mettre en place la gestion des diplômes :
+- Un diplôme est composé de plusieurs étudiants
+- Un étudiant est inscrit à un seul diplôme  
+  *(La gestion du double diplôme peut être traitée en bonus)*
+- Un étudiant obtient son diplôme si et seulement s’il a validé toutes les UE
+- Une UE ne peut pas être validée si l’étudiant obtient une note éliminatoire dans l’une des matières de l’UE
 
-#### Gestion des rôles
+### 1.5 Professeurs
+Ajouter la gestion des professeurs :
+- Chaque UE possède un professeur référent
+- Chaque matière est enseignée par un professeur
+- Un professeur peut enseigner plusieurs matières
 
--   **ADMIN** : Administration des comptes\
--   **SCOLARITÉ** : Administration des étudiants, cours et notes\
--   **STUDENT** : Visualisation de ses propres données
+---
 
-#### Accès après authentification
+## Module 2 – Authentification et gestion des accès
 
--   **Administrateur** : accès **lecture + écriture** à toutes les
-    données\
--   **Scolarité** : accès aux étudiants, cours et notes. Peut :
-    -   saisir des notes\
-    -   éditer des profils étudiants\
-    -   saisir des cours\
-    -   associer des étudiants à des cours\
--   **Étudiant** : visualisation uniquement de ses notes et statistiques
-    associées
+### 2.1 Authentification OAuth 2
+Mettre en place un module d’authentification basé sur OAuth 2, obligatoire pour accéder aux
+fonctionnalités de l’application.
 
-### Module 2 -- Statistiques améliorées
+### 2.2 Gestion des rôles
+Implémenter les rôles suivants :
+- **ADMIN** : Administration complète des comptes et des données
+- **SCOLARITÉ** : Gestion administrative des étudiants, cours et notes
+- **STUDENT** : Consultation de ses propres données uniquement
+- **TEACHER** : Gestion des UE et des matières enseignées
 
-Développer des dashboards adaptés aux rôles :
+### 2.3 Droits d’accès par rôle
+Une fois connecté :
+- **Administrateur**
+  - Accès complet en lecture et écriture à toutes les entités
+- **Scolarité**
+  - Accès aux étudiants, cours et notes
+  - Saisie des notes
+  - Édition des profils étudiants
+  - Association étudiants ↔ cours
+- **Étudiant**
+  - Consultation de ses notes
+  - Visualisation des statistiques liées à son dossier académique
+- **Enseignant**
+  - Gestion des UE et des matières qu’il enseigne
 
--   **Administrateur** : vision globale de toutes les entités\
--   **Scolarité** : vision sur les dossiers des étudiants, cours et
-    notes\
--   **Étudiant** : vision uniquement sur son propre dossier
+### 2.4 Authentification OTP
+Renforcer la sécurité en intégrant une authentification OTP (One-Time Password).
 
-### Module 3 -- Containerisation et déploiement
+### 2.5 Authentification SSO
+Autoriser l’authentification via des fournisseurs SSO :
+- Google
+- Facebook
+- X (Twitter)
+- Autres au choix
 
--   Containerisation des applications **React** et **Node** via
-    **Docker**\
--   Mise en place d'une **pipeline de déploiement dans le cloud** (ex.
-    AWS, Hostinger, ...)
+---
 
-### Bonus
+## Module 3 – Design et expérience utilisateur
 
--   Utiliser les themings Material (mode clair / sombre)\
--   Envoi de mails\
--   Authentification **SSO** (Google, LinkedIn, GitHub, ...)\
--   ...
+- Utilisation de Material UI Theming
+  - Mode clair
+  - Mode sombre
+- Application responsive
+  - Adaptation de l’affichage selon le type d’écran (desktop, tablette, mobile)
 
-## Modalités de rendus
--   Utiliser les mêmes groupes que pour le TP\
--   Répartir le travail sur la base du code des TPs\
--   **Deadline ferme : Voir la date de l'assignation **\
--   Faire une **vidéo démo** de l'ensemble des fonctionnalités (publiée
-    sur YouTube)
+---
+
+## Module 4 – Statistiques avancées
+
+Développer des dashboards dynamiques adaptés au profil utilisateur :
+
+- **Administrateur**
+  - Vision globale sur toutes les entités (étudiants, cours, UE, diplômes, professeurs)
+- **Scolarité**
+  - Statistiques sur les étudiants, cours et notes
+- **Étudiant**
+  - Statistiques personnelles (moyennes, progression, validation des UE)
+
+---
+
+## Module 5 – Containerisation et déploiement
+
+- Containerisation des applications React et Node.js avec Docker
+- Mise en place d’une pipeline de déploiement dans le cloud :
+  - AWS, Hostinger ou autre fournisseur
+- Automatisation du build et du déploiement
+
+---
+
+## Bonus (optionnel)
+- Gestion du double diplôme
+- Notifications (email / SMS)
+- Tests unitaires et tests d’intégration
